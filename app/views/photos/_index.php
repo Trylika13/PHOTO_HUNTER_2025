@@ -1,3 +1,4 @@
+
 <div class="grid grid-cols-3 gap-4">
     <?php foreach ($photos as $photo): ?>
         <article class="bg-white rounded-lg shadow-lg overflow-hidden">
@@ -5,8 +6,6 @@
                 class="w-full h-40 object-cover"
                 src="https://picsum.photos/200/300?random=<?php echo $photo['id']; ?>"
                 alt="Nom du photo" />
-
-
             <div class="p-4">
                 <header class="pb-4">
                     <h3 class="text-lg font-bold"><?php echo $photo['title']; ?></h3>
@@ -18,10 +17,10 @@
                         </a>
                     </div>
                 </header>
-
-
                 <p class="text-base text-gray-600">
-                    <?php echo $photo['resume']; ?>
+                    <?php
+                    echo Core\Helpers\truncate($photo['resume']);
+                     ?>
                 </p>
                 <a
                     href="photo.html"
